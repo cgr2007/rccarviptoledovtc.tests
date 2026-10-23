@@ -1,0 +1,106 @@
+/* ============================================================
+   RC VIP CARS TOLEDO S.L - LUXURY MOBILITY
+   Custom Styles, Mobile Responsive & iOS Optimization
+   ============================================================ */
+
+/* Tipografía base, ancho completo y prevención de desplazamiento horizontal en móviles */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Evitar zoom forzado de iOS Safari al hacer tap en los campos */
+@media screen and (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Optimización para selector nativo de fecha y hora en iPhone / Android (Modo Oscuro) */
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #07090E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #232C3E;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37;
+}
+
+/* Estilos de tarjeta y transiciones táctiles */
+.car-card {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(180deg, rgba(25, 32, 46, 0.6) 0%, rgba(12, 15, 23, 0.9) 100%);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.car-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.15);
+}
+
+/* Botón flotante WhatsApp con soporte para barra inferior del iPhone (Safe Area) */
+.whatsapp-float {
+    bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    right: 20px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Toast Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.toast-message {
+    animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Badge Glow Effect */
+.glow-gold {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+/* Print Optimization for vouchers */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #successModal, #successModal * {
+        visibility: visible;
+    }
+    #successModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white !important;
+        color: black !important;
+    }
+}
